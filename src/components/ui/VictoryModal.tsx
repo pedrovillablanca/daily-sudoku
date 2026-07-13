@@ -16,10 +16,11 @@ export default function VictoryModal() {
 
   const [submitted, setSubmitted] = useState(false);
   const [rank, setRank] = useState<number | null>(null);
+  const [dismissed, setDismissed] = useState(false);
 
   return (
     <AnimatePresence>
-      {isComplete && (
+      {isComplete && !dismissed && (
         <motion.div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
           initial={{ opacity: 0 }}
@@ -27,12 +28,20 @@ export default function VictoryModal() {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 text-center"
+            className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 text-center relative"
             initial={{ scale: 0.8, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.8, opacity: 0, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
+            <button
+              onClick={() => setDismissed(true)}
+              className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}

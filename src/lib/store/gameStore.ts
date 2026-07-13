@@ -151,6 +151,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
       return;
     }
 
+    const currentVal = currentGrid[row][col];
+    if (currentVal === num) return;
+
     const newGrid = currentGrid.map((r) => [...r]);
     newGrid[row][col] = num;
 

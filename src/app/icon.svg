@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="512" height="512" rx="80" fill="url(#bg)"/>
+  
+  <g transform="translate(56, 56)">
+    <!-- Thin grid lines -->
+    <g stroke="rgba(255,255,255,0.3)" stroke-width="2">
+      <line x1="135" y1="0" x2="135" y2="400"/>
+      <line x1="270" y1="0" x2="270" y2="400"/>
+      <line x1="0" y1="135" x2="400" y2="135"/>
+      <line x1="0" y1="270" x2="400" y2="270"/>
+    </g>
+    
+    <!-- Thick 3x3 box lines -->
+    <g stroke="rgba(255,255,255,0.7)" stroke-width="4">
+      <line x1="0" y1="0" x2="400" y2="0"/>
+      <line x1="0" y1="400" x2="400" y2="400"/>
+      <line x1="0" y1="0" x2="0" y2="400"/>
+      <line x1="400" y1="0" x2="400" y2="400"/>
+      <line x1="133" y1="0" x2="133" y2="400"/>
+      <line x1="267" y1="0" x2="267" y2="400"/>
+      <line x1="0" y1="133" x2="400" y2="133"/>
+      <line x1="0" y1="267" x2="400" y2="267"/>
+    </g>
+    
+    <!-- Numbers in cells -->
+    <g fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="700" text-anchor="middle" dominant-baseline="central">
+      <!-- Row 0 -->
+      <text x="67" y="67">5</text>
+      <text x="202" y="67">3</text>
+      <text x="335" y="67">8</text>
+      
+      <!-- Row 1 -->
+      <text x="67" y="202">1</text>
+      <text x="202" y="202">9</text>
+      <text x="335" y="202">6</text>
+      
+      <!-- Row 2 -->
+      <text x="67" y="335">7</text>
+      <text x="202" y="335">2</text>
+      <text x="335" y="335">4</text>
+    </g>
+  </g>
+</svg>
