@@ -32,7 +32,7 @@ export default function AdUnit() {
 
   if (process.env.NODE_ENV !== "production") return null;
 
-  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+  const client = "ca-pub-7473050725327911";
   if (!client) return null;
 
   return (
