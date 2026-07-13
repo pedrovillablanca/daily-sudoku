@@ -99,9 +99,15 @@ export default function VictoryModal() {
                 <p className="text-green-600 font-medium mb-1">
                   Score submitted!
                 </p>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-slate-500 mb-4">
                   You&apos;re ranked <span className="font-bold">#{rank}</span> today
                 </p>
+                <a
+                  href="/leaderboard"
+                  className="inline-block px-6 py-2.5 rounded-xl font-medium text-sm bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+                >
+                  View Leaderboard
+                </a>
               </motion.div>
             )}
 
