@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { cleanupOldScores } from "@/lib/cleanup";
 
 export async function GET(request: NextRequest) {
+  await cleanupOldScores();
   const searchParams = request.nextUrl.searchParams;
   const dateParam = searchParams.get("date");
   const limit = parseInt(searchParams.get("limit") || "50");

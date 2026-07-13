@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { cleanupOldScores } from "@/lib/cleanup";
 
 function getClientIP(request: NextRequest): string {
   const forwarded = request.headers.get("x-forwarded-for");
@@ -14,6 +15,7 @@ function getClientIP(request: NextRequest): string {
 }
 
 export async function GET(request: NextRequest) {
+  await cleanupOldScores();
   const searchParams = request.nextUrl.searchParams;
   const fingerprint = searchParams.get("fingerprint");
   const dateParam = searchParams.get("date");

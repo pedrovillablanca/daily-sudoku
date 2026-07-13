@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getDailyDifficulty } from "@/lib/engine/dailyDifficulty";
+import { cleanupOldScores } from "@/lib/cleanup";
 
 function getClientIP(request: NextRequest): string {
   const forwarded = request.headers.get("x-forwarded-for");
@@ -36,6 +37,7 @@ interface SubmitBody {
 
 export async function POST(request: NextRequest) {
   try {
+    await cleanupOldScores();
     const body: SubmitBody = await request.json();
     const { alias, fingerprint, score: clientScore, timeSeconds, errors } = body;
 
