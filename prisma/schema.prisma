@@ -4,7 +4,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
 
 model User {
@@ -23,7 +23,6 @@ model Score {
   timeSeconds Int
   difficulty  String
   errors      Int
-  hintsUsed   Int      @default(0)
   completed   Boolean  @default(true)
   ipAddress   String   @default("")
   createdAt   DateTime @default(now())
