@@ -18,6 +18,7 @@ interface GameStore {
   currentGrid: Grid;
   selectedCell: [number, number] | null;
   errors: Set<string>;
+  totalErrors: number;
   difficulty: Difficulty;
   isComplete: boolean;
   startTime: number;
@@ -67,6 +68,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   currentGrid: [],
   selectedCell: null,
   errors: new Set<string>(),
+  totalErrors: 0,
   difficulty: "medium",
   isComplete: false,
   startTime: 0,
@@ -101,6 +103,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       currentGrid: data.puzzle.map((row) => [...row]),
       selectedCell: null,
       errors: new Set<string>(),
+      totalErrors: 0,
       difficulty,
       isComplete: false,
       startTime: 0,
@@ -168,6 +171,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       set({
         currentGrid: newGrid,
         errors: newErrors,
+        totalErrors: get().totalErrors + 1,
         score: Math.max(0, score + penalty),
         streak: 0,
         scorePopups: [

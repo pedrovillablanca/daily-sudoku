@@ -10,7 +10,7 @@ export default function VictoryModal() {
   const isComplete = useGameStore((s) => s.isComplete);
   const score = useGameStore((s) => s.score);
   const elapsedTime = useGameStore((s) => s.elapsedTime);
-  const errors = useGameStore((s) => s.errors);
+  const errors = useGameStore((s) => s.totalErrors);
   const difficulty = useGameStore((s) => s.difficulty);
   const nickname = useGameStore((s) => s.nickname);
 
@@ -76,7 +76,7 @@ export default function VictoryModal() {
                 <div className="text-slate-400">Time</div>
               </div>
               <div>
-                <div className="font-bold text-slate-700">{errors.size}</div>
+                <div className="font-bold text-slate-700">{errors}</div>
                 <div className="text-slate-400">Errors</div>
               </div>
               <div>
@@ -91,7 +91,7 @@ export default function VictoryModal() {
               <ScoreSubmitter
                 score={score}
                 timeSeconds={elapsedTime}
-                errors={errors.size}
+                errors={errors}
                 difficulty={difficulty}
                 initialAlias={nickname}
                 onSuccess={(r) => {
