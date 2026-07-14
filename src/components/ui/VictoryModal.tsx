@@ -94,6 +94,7 @@ export default function VictoryModal() {
                 errors={errors}
                 difficulty={difficulty}
                 initialAlias={nickname}
+                hideAliasInput={!!nickname}
                 onSuccess={(r) => {
                   setSubmitted(true);
                   setRank(r);
